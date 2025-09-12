@@ -1,8 +1,8 @@
 const quizData = [
   {
-    question: "Você está <span class='highlight-red'>perdendo</span> <span class='highlight-green'>dinheiro</span> com apostas? 💸",
+    question: "Você está perdendo dinheiro com apostas? 💸",
     answers: ["Sim, várias vezes", "Algumas vezes", "Poucas vezes", "Não, mas sempre fico preocupado"],
-    feedback: "Sozinho é fácil <span class='highlight-red'>perder</span>. Mas existe uma forma de mudar isso."
+    feedback: "Sozinho é fácil perder. Mas existe uma forma de mudar isso."
   },
   {
     question: "Você se sente confiante ao identificar oportunidades reais de lucro sozinho? 🤔",
@@ -12,7 +12,7 @@ const quizData = [
   {
     question: "Com que frequência você confia apenas na sorte ao apostar? 🎲",
     answers: ["Sempre", "Frequentemente", "Às vezes", "Quase nunca"],
-    feedback: "Confiar na sorte sozinho é arriscado. Informação = <span class='highlight-green'>ganho</span>."
+    feedback: "Confiar na sorte sozinho é arriscado. Informação = ganho."
   },
   {
     question: "Você já perdeu oportunidades de lucro por não ter alertas rápidos? ⏱️",
@@ -20,7 +20,7 @@ const quizData = [
     feedback: "A IA garante que você seja informado no momento certo."
   },
   {
-    question: "Ter alertas prontos e uma comunidade ativa ajudaria você a <span class='highlight-green'>ganhar</span> mais? 📈",
+    question: "Ter alertas prontos e uma comunidade ativa ajudaria você a ganhar mais? 📈",
     answers: ["Sim, imediatamente", "Claro", "Com certeza", "Talvez, mas vale tentar"],
     feedback: "Exatamente, é assim que nosso grupo maximiza oportunidades."
   },
@@ -43,16 +43,33 @@ function loadQuestion() {
   const q = quizData[currentQuestion];
   progressEl.textContent = `Pergunta ${currentQuestion + 1} de ${quizData.length}`;
 
-  quizEl.innerHTML = `
-    ${currentQuestion === 0 ? `<h1>${q.question}</h1>` : `<h2 class="question">${q.question}</h2>`}
-    ${q.answers.map(ans => `<button class="answer-btn">${ans}</button>`).join('')}
-  `;
+  const titleHtml = currentQuestion === 0
+    ? `<h1>${q.question}</h1>`
+    : `<h2 class="question">${q.question}</h2>`;
+
+  quizEl.innerHTML = `${titleHtml} ${q.answers.map(ans => `<button class="answer-btn">${ans}</button>`).join('')}`;
 
   const buttons = document.querySelectorAll(".answer-btn");
   buttons.forEach((btn, index) => {
     btn.style.animationDelay = `${index * 0.1}s`;
+    btn.classList.remove("selected");
     btn.addEventListener("click", () => selectAnswer(btn));
   });
 }
 
-function selectAnswer(button
+function selectAnswer(button) {
+  button.classList.add("selected");
+  feedbackEl.innerHTML = quizData[currentQuestion].feedback;
+
+  setTimeout(() => {
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+      loadQuestion();
+    } else {
+      document.querySelector(".quiz-container").classList.add("hidden");
+      resultEl.classList.remove("hidden");
+    }
+  }, 700);
+}
+
+loadQuestion();
