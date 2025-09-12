@@ -51,6 +51,7 @@ function loadQuestion() {
 
   const buttons = document.querySelectorAll(".answer-btn");
   buttons.forEach((btn, index) => {
+    btn.style.animation = `fadeInBtn 0.5s forwards`;
     btn.style.animationDelay = `${index * 0.1}s`;
     btn.classList.remove("selected");
     btn.addEventListener("click", () => selectAnswer(btn));
@@ -72,4 +73,5 @@ function selectAnswer(button) {
   }, 700);
 }
 
+// Inicia quiz
 loadQuestion();
