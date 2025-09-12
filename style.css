@@ -1,58 +1,68 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fa;
-  color: #222;
+  font-family: 'Roboto', sans-serif;
+  background: #121212;
+  color: #eaeaea;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .quiz-container, #result {
-  max-width: 600px;
+  max-width: 650px;
   margin: 50px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 30px;
+  background: #1c1c1c;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  animation: fadeIn 0.8s ease;
 }
 
 h1, h2 {
-  color: #003366; /* azul BugBot */
-  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
 
 #progress {
-  text-align: center;
-  margin: 10px 0;
+  margin: 15px 0;
   font-weight: bold;
+  color: #bbb;
 }
 
 button, .cta-btn {
   display: block;
   width: 100%;
-  margin: 15px 0;
-  padding: 15px;
+  margin: 12px 0;
+  padding: 16px;
   font-size: 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 button {
-  background: #0055cc;
+  background: #2d2d2d;
   color: #fff;
 }
 
 button:hover {
-  background: #003d99;
+  background: #3f3f3f;
+  transform: scale(1.02);
+}
+
+button.selected {
+  background: #28a745 !important;
+  color: #fff;
+  transform: scale(1.05);
 }
 
 .cta-btn {
-  background: #28a745; /* verde de ação */
+  background: #28a745;
   color: white;
-  text-decoration: none;
   font-weight: bold;
-  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
   animation: pulse 1.5s infinite;
 }
 
@@ -60,17 +70,10 @@ button:hover {
   background: #218838;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
 .feedback {
-  margin-top: 10px;
+  margin-top: 12px;
   font-style: italic;
-  color: #444;
-  text-align: center;
+  color: #ccc;
 }
 
 .hidden {
@@ -78,7 +81,28 @@ button:hover {
 }
 
 .urgency {
-  text-align: center;
-  color: #cc0000;
+  margin-top: 15px;
+  color: #ff4d4d;
   font-weight: bold;
+}
+
+.highlight-red {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+.highlight-green {
+  color: #28a745;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(15px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1); }
 }
