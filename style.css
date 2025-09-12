@@ -8,12 +8,12 @@ body {
 }
 
 .quiz-container, #result {
-  max-width: 650px;
+  max-width: 720px;
   margin: 50px auto;
-  padding: 30px;
+  padding: 35px;
   background: #1c1c1c;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  border-radius: 14px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
   animation: fadeIn 0.8s ease;
 }
 
@@ -21,6 +21,13 @@ h1, h2 {
   font-family: 'Poppins', sans-serif;
   color: #ffffff;
   margin-bottom: 20px;
+}
+
+h2.question {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #ffffff;
 }
 
 #progress {
@@ -32,29 +39,43 @@ h1, h2 {
 button, .cta-btn {
   display: block;
   width: 100%;
-  margin: 12px 0;
+  margin: 14px 0;
   padding: 16px;
   font-size: 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInBtn 0.5s forwards;
 }
 
 button {
-  background: #2d2d2d;
+  background: #0055cc; /* azul BugBot */
   color: #fff;
 }
 
 button:hover {
-  background: #3f3f3f;
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 button.selected {
   background: #28a745 !important;
   color: #fff;
-  transform: scale(1.05);
+  animation: clickEffect 0.3s ease;
+  transform: scale(1.1);
+}
+
+@keyframes fadeInBtn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes clickEffect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1.05); }
 }
 
 .cta-btn {
@@ -64,6 +85,10 @@ button.selected {
   text-decoration: none;
   font-size: 18px;
   animation: pulse 1.5s infinite;
+  padding: 18px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 .cta-btn:hover {
@@ -74,6 +99,8 @@ button.selected {
   margin-top: 12px;
   font-style: italic;
   color: #ccc;
+  min-height: 22px;
+  transition: opacity 0.3s ease;
 }
 
 .hidden {
@@ -94,6 +121,14 @@ button.selected {
 .highlight-green {
   color: #28a745;
   font-weight: bold;
+}
+
+.result-box {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  animation: fadeIn 1s ease;
 }
 
 @keyframes fadeIn {
