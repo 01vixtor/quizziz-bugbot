@@ -1,43 +1,33 @@
 const quizData = [
   {
-    question: "Você já <span class='highlight-red'>perdeu</span> <span class='highlight-green'>dinheiro</span> em apostas achando que tinha uma boa chance?",
+    question: "Você está <span class='highlight-red'>perdendo</span> <span class='highlight-green'>dinheiro</span> com apostas? 💸",
     answers: ["Sim, várias vezes", "Algumas vezes", "Poucas vezes", "Não, mas sempre fico preocupado"],
-    feedback: "Sozinho é fácil <span class='highlight-red'>perder</span>. Mas há uma forma de virar o jogo."
+    feedback: "Sozinho é fácil <span class='highlight-red'>perder</span>. Mas existe uma forma de mudar isso."
   },
   {
-    question: "Quando aposta, você tem certeza que está explorando todas as oportunidades?",
-    answers: ["Nunca", "Quase nunca", "Às vezes", "Sim, mas sempre com dúvida"],
-    feedback: "É impossível analisar sozinho todas as chances; a IA faz isso para você."
+    question: "Você se sente confiante ao identificar oportunidades reais de lucro sozinho? 🤔",
+    answers: ["Nunca", "Quase nunca", "Às vezes", "Sim, mas com dúvidas"],
+    feedback: "Mesmo apostadores experientes erram sozinho. A IA te dá vantagem."
   },
   {
-    question: "Você confia mais na sorte ou em informação real para <span class='highlight-green'>ganhar</span>?",
-    answers: ["Só na sorte (e perco)", "Mais sorte que análise", "Tento analisar, mas erro", "Uso análise, mas sozinho não basta"],
-    feedback: "Informação real separa quem <span class='highlight-red'>perde</span> de quem <span class='highlight-green'>ganha</span>."
+    question: "Com que frequência você confia apenas na sorte ao apostar? 🎲",
+    answers: ["Sempre", "Frequentemente", "Às vezes", "Quase nunca"],
+    feedback: "Confiar na sorte sozinho é arriscado. Informação = <span class='highlight-green'>ganho</span>."
   },
   {
-    question: "Já viu pessoas explorando falhas e pensou 'por que não eu'?",
-    answers: ["Sim, várias vezes", "Sim, algumas vezes", "Poucas vezes", "Não, mas sei que existe"],
-    feedback: "Elas aproveitaram bugs que passam despercebidos. A IA identifica antes de você."
+    question: "Você já perdeu oportunidades de lucro por não ter alertas rápidos? ⏱️",
+    answers: ["Sim, várias vezes", "Algumas vezes", "Poucas vezes", "Nunca"],
+    feedback: "A IA garante que você seja informado no momento certo."
   },
   {
-    question: "Se tivesse uma IA que varre casas 24h por dia encontrando bugs, você usaria?",
-    answers: ["Sim, agora mesmo", "Claro, perfeito", "Sem dúvida", "Talvez, mas perderia ficando de fora"],
-    feedback: "Exato. Esse é o diferencial do nosso grupo."
+    question: "Ter alertas prontos e uma comunidade ativa ajudaria você a <span class='highlight-green'>ganhar</span> mais? 📈",
+    answers: ["Sim, imediatamente", "Claro", "Com certeza", "Talvez, mas vale tentar"],
+    feedback: "Exatamente, é assim que nosso grupo maximiza oportunidades."
   },
   {
-    question: "Prefere continuar sozinho ou receber alertas prontos da IA?",
-    answers: ["Quero alertas da IA", "IA + comunidade é o que preciso", "Sozinho já vi que não dá", "IA é o futuro, não tem como competir"],
-    feedback: "Sozinho = <span class='highlight-red'>perda</span>. Com IA = <span class='highlight-green'>ganho</span>."
-  },
-  {
-    question: "Quando um bug aparece, o tempo para aproveitar é curto. Você prefere ser informado imediatamente ou depois?",
-    answers: ["Imediatamente", "Antes de todos", "Não quero perder oportunidades", "Qualquer opção mostra que não quero ficar de fora"],
-    feedback: "No grupo, você recebe alertas no tempo certo e maximiza o <span class='highlight-green'>lucro</span>."
-  },
-  {
-    question: "Você está pronto para entrar no grupo e ter acesso direto à IA que encontra os bugs mais lucrativos?",
-    answers: ["Sim, quero agora", "Com certeza, não dá para perder", "Sim, preciso disso", "Sim, sem dúvida"],
-    feedback: "Perfeito. O próximo passo é garantir sua vaga."
+    question: "Você quer parar de perder e começar a aproveitar cada oportunidade de lucro? 💰",
+    answers: ["Sim, quero agora", "Sim, definitivamente", "Claro", "Com certeza"],
+    feedback: "Ótimo! O próximo passo é garantir sua vaga no grupo."
   }
 ];
 
@@ -54,29 +44,15 @@ function loadQuestion() {
   progressEl.textContent = `Pergunta ${currentQuestion + 1} de ${quizData.length}`;
 
   quizEl.innerHTML = `
-    <h2>${q.question}</h2>
+    ${currentQuestion === 0 ? `<h1>${q.question}</h1>` : `<h2 class="question">${q.question}</h2>`}
     ${q.answers.map(ans => `<button class="answer-btn">${ans}</button>`).join('')}
   `;
 
-  document.querySelectorAll(".answer-btn").forEach(btn => {
+  const buttons = document.querySelectorAll(".answer-btn");
+  buttons.forEach((btn, index) => {
+    btn.style.animationDelay = `${index * 0.1}s`;
     btn.addEventListener("click", () => selectAnswer(btn));
   });
 }
 
-function selectAnswer(button) {
-  document.querySelectorAll(".answer-btn").forEach(btn => btn.classList.remove("selected"));
-  button.classList.add("selected");
-  feedbackEl.innerHTML = quizData[currentQuestion].feedback;
-
-  setTimeout(() => {
-    currentQuestion++;
-    if (currentQuestion < quizData.length) {
-      loadQuestion();
-    } else {
-      document.querySelector(".quiz-container").classList.add("hidden");
-      resultEl.classList.remove("hidden");
-    }
-  }, 800); // espera 0,8s antes de ir pra próxima
-}
-
-loadQuestion();
+function selectAnswer(button
