@@ -113,16 +113,6 @@ button.selected {
   font-weight: bold;
 }
 
-.highlight-red {
-  color: #ff4d4d;
-  font-weight: bold;
-}
-
-.highlight-green {
-  color: #28a745;
-  font-weight: bold;
-}
-
 .result-box {
   background: #222;
   padding: 20px;
