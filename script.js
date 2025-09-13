@@ -49,6 +49,11 @@ function loadQuestion() {
 }
 
 function selectAnswer(button) {
+  // remove seleção anterior da pergunta
+  const buttons = document.querySelectorAll(".answer-btn");
+  buttons.forEach(btn => btn.classList.remove("selected"));
+
+  // marca apenas o botão clicado
   button.classList.add("selected");
   feedbackEl.innerHTML = quizData[currentQuestion].feedback;
 
