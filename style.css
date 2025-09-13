@@ -27,12 +27,27 @@ h2.question {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 18px;
-  color: #ffffff;
   animation: titleFade 0.5s ease;
 }
 
-#progress {
-  margin: 15px 0;
+#progress-bar {
+  width: 100%;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  height: 12px;
+}
+
+#progress-fill {
+  height: 12px;
+  width: 0%;
+  background: #0055cc;
+  transition: width 0.3s ease;
+}
+
+#progress-text {
+  margin-bottom: 15px;
   font-weight: bold;
   color: #bbb;
 }
@@ -63,9 +78,8 @@ button:hover {
 
 button.selected {
   background: #28a745 !important;
-  color: #fff;
-  animation: clickEffect 0.3s ease;
   transform: scale(1.1);
+  animation: clickEffect 0.3s ease;
 }
 
 @keyframes fadeInBtn {
@@ -107,18 +121,28 @@ button.selected {
   display: none;
 }
 
-.urgency {
-  margin-top: 15px;
-  color: #ff4d4d;
-  font-weight: bold;
-}
-
 .result-box {
   background: #222;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.6);
   animation: fadeIn 1s ease;
+}
+
+.advantages {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  text-align: left;
+}
+
+.advantages li {
+  margin-bottom: 10px;
+}
+
+.result-text {
+  margin: 10px 0;
+  font-size: 16px;
 }
 
 @keyframes fadeIn {
