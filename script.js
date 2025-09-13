@@ -40,10 +40,7 @@ function loadQuestion() {
   quizEl.innerHTML = `${titleHtml} ${q.answers.map(ans => `<button class="answer-btn">${ans}</button>`).join('')}`;
 
   const buttons = document.querySelectorAll(".answer-btn");
-  buttons.forEach((btn, index) => {
-    btn.style.animation = `fadeInBtn 0.5s forwards`;
-    btn.style.animationDelay = `${index * 0.1}s`;
-    btn.classList.remove("selected");
+  buttons.forEach(btn => {
     btn.addEventListener("click", () => selectAnswer(btn));
   });
 }
