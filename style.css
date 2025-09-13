@@ -1,6 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background: #121212;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
   color: #eaeaea;
   margin: 0;
   padding: 0;
@@ -10,10 +10,10 @@ body {
 .quiz-container, #result {
   max-width: 720px;
   margin: 50px auto;
-  padding: 35px;
+  padding: 40px;
   background: #1c1c1c;
-  border-radius: 14px;
-  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
   animation: fadeIn 0.8s ease;
 }
 
@@ -21,6 +21,12 @@ h1, h2 {
   font-family: 'Poppins', sans-serif;
   color: #ffffff;
   margin-bottom: 20px;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+h2.question:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 0 10px #0055cc;
 }
 
 h2.question {
@@ -43,7 +49,7 @@ h2.question {
   height: 12px;
   width: 0%;
   background: #0055cc;
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
 }
 
 #progress-text {
@@ -59,27 +65,30 @@ button, .cta-btn {
   padding: 16px;
   font-size: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
 }
 
 button {
   background: #0055cc;
   color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
 }
 
 button.selected {
   background: #28a745 !important;
   transform: scale(1.1);
   animation: clickEffect 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
 }
 
 @keyframes fadeInBtn {
@@ -99,17 +108,19 @@ button.selected {
   text-decoration: none;
   font-size: 20px;
   padding: 18px 30px;
-  border-radius: 10px;
+  border-radius: 12px;
   display: inline-block;
   margin-top: 20px;
   text-align: center;
   z-index: 10;
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-btn:hover {
   background: #218838;
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.7);
 }
 
 .feedback {
@@ -126,9 +137,9 @@ button.selected {
 
 .result-box {
   background: #222;
-  padding: 40px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  padding: 40px 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.7);
   animation: fadeIn 1s ease;
   display: flex;
   flex-direction: column;
