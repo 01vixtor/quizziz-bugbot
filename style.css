@@ -91,19 +91,10 @@ button.selected {
   box-shadow: 0 8px 20px rgba(0,0,0,0.7);
 }
 
-@keyframes fadeInBtn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes clickEffect {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1.05); }
-}
-
+/* Botão final verde neon */
 .cta-btn {
-  background: #28a745;
-  color: white;
+  background: #39ff14;
+  color: #000;
   font-weight: bold;
   text-decoration: none;
   font-size: 20px;
@@ -113,14 +104,13 @@ button.selected {
   margin-top: 20px;
   text-align: center;
   z-index: 10;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  box-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 60px #39ff14;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-btn:hover {
-  background: #218838;
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #39ff14, 0 0 60px #39ff14, 0 0 90px #39ff14;
 }
 
 .feedback {
