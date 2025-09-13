@@ -21,12 +21,6 @@ h1, h2 {
   font-family: 'Poppins', sans-serif;
   color: #ffffff;
   margin-bottom: 20px;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
-}
-
-h2.question:hover {
-  transform: translateY(-3px);
-  text-shadow: 0 0 10px #0055cc;
 }
 
 h2.question {
@@ -68,9 +62,9 @@ button, .cta-btn {
   border-radius: 10px;
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
-  opacity: 0;
-  transform: translateY(20px);
   transition: all 0.3s ease, box-shadow 0.3s ease;
+  opacity: 1; /* corrigido: botões visíveis */
+  transform: translateY(0);
 }
 
 button {
@@ -86,7 +80,7 @@ button:hover {
 
 button.selected {
   background: #28a745 !important;
-  transform: scale(1.1);
+  transform: scale(1.05);
   animation: clickEffect 0.3s ease;
   box-shadow: 0 8px 20px rgba(0,0,0,0.7);
 }
@@ -162,8 +156,8 @@ button.selected {
   to {opacity: 1; transform: translateY(0);}
 }
 
-@keyframes pulse {
+@keyframes clickEffect {
   0% { transform: scale(1); }
-  50% { transform: scale(1.07); }
+  50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
