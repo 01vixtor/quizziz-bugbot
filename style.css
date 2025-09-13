@@ -1,33 +1,16 @@
 body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-  color: #eaeaea;
+  font-family: 'Arial', sans-serif;
+  background: #0d0d0d;
+  color: #fff;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-.quiz-container, #result {
-  max-width: 720px;
-  margin: 50px auto;
-  padding: 40px;
-  background: #1c1c1c;
-  border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
-  animation: fadeIn 0.8s ease;
-}
-
-h1, h2 {
-  font-family: 'Poppins', sans-serif;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-h2.question {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 18px;
-  animation: titleFade 0.5s ease;
+.quiz-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
 #progress-bar {
@@ -36,56 +19,110 @@ h2.question {
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 10px;
-  height: 12px;
 }
 
 #progress-fill {
-  height: 12px;
-  width: 0%;
-  background: #0055cc;
-  transition: width 0.4s ease;
+  height: 15px;
+  width: 0;
+  background: #1e90ff;
+  transition: width 0.3s ease;
 }
 
 #progress-text {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-weight: bold;
-  color: #bbb;
 }
 
-button, .cta-btn {
+.reward-hint {
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(57,255,20,0.1);
+  border: 1px solid #39ff14;
+  border-radius: 8px;
+  color: #39ff14;
+  font-weight: bold;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px #39ff14; }
+  to { box-shadow: 0 0 15px #39ff14; }
+}
+
+.answer-btn {
   display: block;
   width: 100%;
-  margin: 14px 0;
-  padding: 16px;
-  font-size: 16px;
+  padding: 15px;
+  margin: 10px 0;
+  background: #1e90ff;
   border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  transition: all 0.3s ease, box-shadow 0.3s ease;
-  opacity: 1; /* corrigido: botões visíveis */
-  transform: translateY(0);
-}
-
-button {
-  background: #0055cc;
+  border-radius: 8px;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
 }
 
-button:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-}
-
-button.selected {
-  background: #28a745 !important;
+.answer-btn:hover {
   transform: scale(1.05);
-  animation: clickEffect 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  background: #3aa0ff;
 }
 
-/* Botão final verde neon */
+.answer-btn.selected {
+  background: #39ff14;
+  color: #000;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+.feedback {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+  min-height: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.result-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.result-box {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.advantages {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.advantages li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.urgency-text {
+  color: #ff4444;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.countdown {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 0;
+  color: #ffcc00;
+}
+
 .cta-btn {
   background: #39ff14;
   color: #000;
@@ -97,7 +134,6 @@ button.selected {
   display: inline-block;
   margin-top: 20px;
   text-align: center;
-  z-index: 10;
   box-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 60px #39ff14;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -107,57 +143,12 @@ button.selected {
   box-shadow: 0 0 30px #39ff14, 0 0 60px #39ff14, 0 0 90px #39ff14;
 }
 
-.feedback {
-  margin-top: 12px;
-  font-style: italic;
-  color: #ccc;
-  min-height: 22px;
-  transition: opacity 0.3s ease;
+.pulse {
+  animation: pulse 1.5s infinite;
 }
 
-.hidden {
-  display: none;
-}
-
-.result-box {
-  background: #222;
-  padding: 40px 25px;
-  border-radius: 12px;
-  box-shadow: 0 6px 28px rgba(0,0,0,0.7);
-  animation: fadeIn 1s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.advantages {
-  list-style: none;
-  padding: 0;
-  margin: 15px 0;
-  text-align: left;
-}
-
-.advantages li {
-  margin-bottom: 10px;
-}
-
-.result-text {
-  margin: 10px 0;
-  font-size: 16px;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(15px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@keyframes titleFade {
-  from {opacity: 0; transform: translateY(-10px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@keyframes clickEffect {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 20px #39ff14; }
+  50% { transform: scale(1.07); box-shadow: 0 0 40px #39ff14; }
+  100% { transform: scale(1); box-shadow: 0 0 20px #39ff14; }
 }
