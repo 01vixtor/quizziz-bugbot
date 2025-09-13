@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz BugBot IA</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BugBot Quiz</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="quiz-container">
@@ -13,25 +12,39 @@
       <div id="progress-fill"></div>
     </div>
     <div id="progress-text"></div>
+
+    <!-- PROMESSA -->
+    <div id="reward-hint" class="reward-hint">
+      ⚡ Complete o quiz até o final e desbloqueie uma <strong>recompensa exclusiva</strong> 🎁
+    </div>
+
     <div id="quiz"></div>
     <div id="feedback" class="feedback"></div>
   </div>
 
   <div id="result" class="hidden">
-    <h2 class="result-title">Você está pronto para lucrar?</h2>
+    <h1 class="result-title">🎁 Parabéns, você completou o quiz!</h1>
     <div class="result-box">
+      <p class="result-text">
+        Sua <strong>recompensa exclusiva foi liberada</strong> 🚀  
+        Agora você pode entrar no grupo VIP e ter acesso imediato à IA + bônus especial.
+      </p>
       <ul class="advantages">
-        <li>⚡ IA detecta bugs automaticamente</li>
-        <li>⏱️ Alertas instantâneos</li>
-        <li>💰 Maior chance de lucro real</li>
+        <li>🔥 Acesso imediato à IA que detecta falhas ocultas</li>
+        <li>🎯 Estratégias prontas para aplicar hoje</li>
+        <li>🎁 Bônus exclusivo só para quem terminou o quiz</li>
       </ul>
-      <p class="result-text">Quer parar de perder dinheiro e começar a lucrar com apostas? Clique abaixo e entre no grupo agora!</p>
-      <a href="https://acesso-fortunevip.netlify.app/" class="cta-btn">
-        Entrar no Grupo e Lucrar
+      <p class="urgency-text">⚠️ Vagas limitadas. Se sair agora, perde a recompensa.</p>
+      
+      <!-- CONTADOR REGRESSIVO -->
+      <div id="countdown" class="countdown">⏳ Sua recompensa expira em 03:00</div>
+
+      <a href="https://acesso-fortunevip.netlify.app/" class="cta-btn pulse">
+        Resgatar minha recompensa agora 🚀
       </a>
     </div>
   </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
