@@ -97,16 +97,19 @@ button.selected {
   color: white;
   font-weight: bold;
   text-decoration: none;
-  font-size: 18px;
-  animation: pulse 1.5s infinite;
-  padding: 18px;
+  font-size: 20px;
+  padding: 18px 30px;
   border-radius: 10px;
   display: inline-block;
   margin-top: 20px;
+  text-align: center;
+  z-index: 10;
+  transition: transform 0.3s ease;
 }
 
 .cta-btn:hover {
   background: #218838;
+  transform: scale(1.05);
 }
 
 .feedback {
@@ -123,10 +126,13 @@ button.selected {
 
 .result-box {
   background: #222;
-  padding: 20px;
+  padding: 40px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.6);
   animation: fadeIn 1s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .advantages {
