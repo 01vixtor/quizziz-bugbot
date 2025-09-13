@@ -31,7 +31,7 @@ function loadQuestion() {
   feedbackEl.innerHTML = "";
   const q = quizData[currentQuestion];
   progressText.textContent = `Pergunta ${currentQuestion + 1} de ${quizData.length}`;
-  progressFill.style.width = `${((currentQuestion)/quizData.length)*100}%`;
+  progressFill.style.width = `${(currentQuestion / quizData.length) * 100}%`;
 
   const titleHtml = currentQuestion === 0
     ? `<h1>${q.question}</h1>`
@@ -56,7 +56,7 @@ function selectAnswer(button) {
     currentQuestion++;
     if (currentQuestion < quizData.length) {
       loadQuestion();
-      progressFill.style.width = `${(currentQuestion/quizData.length)*100}%`;
+      progressFill.style.width = `${(currentQuestion / quizData.length) * 100}%`;
     } else {
       document.querySelector(".quiz-container").classList.add("hidden");
       resultEl.classList.remove("hidden");
